@@ -1,0 +1,2 @@
+# gorth
+Forth in Go
