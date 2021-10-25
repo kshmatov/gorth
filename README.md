@@ -1,2 +1,3 @@
 # gorth
-Forth in Go
+Forth in Go, just to try
+
