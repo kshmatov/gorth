@@ -1,31 +1,32 @@
 package op
 
 import (
-	"fmt"
-	"strconv"
-
 	"github.com/kshmatov/gorth/internal/stack"
 )
 
-func Push(x int64) Op {
+func Add() Op {
 	return &operation{
-		desc: strconv.FormatInt(x, 10),
+		desc: "add",
 		f: func(s *stack.Stack) (int, error) {
-			s.Push(x)
+			a, b, err := get2(s)
+			if err != nil {
+				return 1, err
+			}
+			s.Push(a + b)
 			return 1, nil
 		},
 	}
 }
 
-func Dump() Op {
+func Sub() Op {
 	return &operation{
-		desc: "dump",
+		desc: "sub",
 		f: func(s *stack.Stack) (int, error) {
-			v, err := s.Pop()
+			a, b, err := get2(s)
 			if err != nil {
 				return 1, err
 			}
-			fmt.Printf("%v\n", v)
+			s.Push(b - a)
 			return 1, nil
 		},
 	}
