@@ -10,6 +10,8 @@ import (
 var ErrEmptyProg = errors.New("empty text")
 var ErrSyntax = errors.New("syntax error")
 
+type Program []op.Op
+
 var ops = map[string]func() op.Op{
 	"+":    op.Add,
 	"-":    op.Sub,
@@ -17,14 +19,24 @@ var ops = map[string]func() op.Op{
 	"add":  op.Add,
 	"sub":  op.Sub,
 	"dump": op.Dump,
+	"eq":   op.Eq,
+	"=":    op.Eq,
+	"gt":   op.Gt,
+	">":    op.Gt,
+	"gte":  op.Gte,
+	">=":   op.Gte,
+	"lt":   op.Lt,
+	"<":    op.Lt,
+	"lte":  op.Lte,
+	"<=":   op.Lte,
 }
 
-func Text2Program(t []byte) (op.Program, error) {
+func Text2Program(t []byte) (Program, error) {
 	token, lines := string2Tokens(string(t))
 	if token == nil {
 		return nil, errors.New("empty text")
 	}
-	prog := make(op.Program, lines)
+	prog := make(Program, lines)
 	i := 0
 	for token != nil {
 		op, err := getOperation(token.v)

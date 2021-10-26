@@ -3,12 +3,13 @@ package interpreter
 import (
 	"fmt"
 
+	"github.com/kshmatov/gorth/internal/lexer"
 	"github.com/kshmatov/gorth/internal/op"
 	"github.com/kshmatov/gorth/internal/stack"
 	"github.com/pkg/errors"
 )
 
-func Simulate(prog op.Program, debug bool) error {
+func Simulate(prog lexer.Program, debug bool) error {
 	var i int
 	var operation op.Op
 	var s *stack.Stack
@@ -26,14 +27,20 @@ func Simulate(prog op.Program, debug bool) error {
 	}()
 
 	s = stack.NewStack()
-	for i, operation = range prog {
+	l := len(prog)
+	for {
+		if i >= l {
+			break
+		}
+		operation = prog[i]
 		if debug {
 			fmt.Printf("%v\t%v\n", i, operation)
 		}
-		err := operation.Exec(s)
+		next, err := operation.Exec(s)
 		if err != nil {
 			return errors.Wrapf(err, "%v on <%v> runtime error", operation, i)
 		}
+		i += next
 	}
 	if debug {
 		fmt.Printf("stack:\n%v\n", s)
