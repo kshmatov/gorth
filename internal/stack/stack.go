@@ -39,7 +39,7 @@ func (s *Stack) Pop() (int64, error) {
 	return v, nil
 }
 
-func (s Stack) Dump() string {
+func (s Stack) String() string {
 	m := make([]string, s.pos+1)
 	for i := 0; i <= s.pos; i++ {
 		m[i] = fmt.Sprintf("%04x\t%d", i, s.s[s.pos-i])

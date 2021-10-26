@@ -1,12 +1,26 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 
-	"github.com/kshmatov/gorth/internal/op"
+	"github.com/kshmatov/gorth/internal/runner"
 )
 
 func main() {
-	fmt.Println("Starting gorth")
-	fmt.Printf("%#v %T\n", op.COUNT_OPS, op.COUNT_OPS)
+	fn := flag.String("f", "", "file with sourcecode")
+	debug := flag.Bool("d", false, "show debug output")
+
+	flag.Parse()
+
+	if *fn == "" {
+		flag.PrintDefaults()
+		return
+	}
+	err := runner.Run(*fn, *debug)
+	if err != nil {
+		fmt.Printf("error:\n\t%v\n", err)
+	} else {
+		fmt.Printf("\ndone ok\n")
+	}
 }

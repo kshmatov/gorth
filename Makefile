@@ -1,15 +1,16 @@
 MAIN=gorth
 BIN=./bin/$(MAIN)
+SAMPLE=./sample/test.gorth
 
 .PHONY: ALL
-all: test build
+all: deps test build
 
 .PHONY: test
-test: deps
+test:
 	go test ./...
 
 .PHONY: build
-build: deps
+build:
 	go build -o $(BIN) cmd/$(MAIN)/main.go
 
 .PHONY: deps
@@ -20,4 +21,4 @@ init:
 	go mod init
 
 run: build
-	$(BIN)
+	$(BIN) -d -f $(SAMPLE)
