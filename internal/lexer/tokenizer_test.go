@@ -68,7 +68,7 @@ func TestLexer(t *testing.T) {
 
 	str = "  a \tNN   \n \t qqqq\n"
 	ctrl := []string{"a", "NN", "qqqq"}
-	cline := []int{0, 0, 1}
+	cline := []int{1, 1, 2}
 	f, cnt = string2Tokens(str)
 	c := f
 	if cnt != 3 {

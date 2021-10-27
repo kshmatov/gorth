@@ -72,5 +72,6 @@ Also I plan to make virtual machine for it and compiler for this VM
 2. [syntax.gorth](sample/syntax.gorth) - syntax error in code
 3. [outstack.gorth](sample/outstack.gorth) - runtime error
 4. [maxint.gorth](sample/maxint.gorth) - sum of two max int64
+5. [zerodiv.gorth](sample/zerodiv.gorth) - divide by zero
 
 Work in progress

@@ -48,7 +48,7 @@ func string2Tokens(str string) (*token, int) {
 	var start, cur *token
 	cnt := 0
 	for i, s := range lines {
-		f, c, ls := tokenize(i, s, cur)
+		f, c, ls := tokenize(i+1, s, cur)
 		if start == nil {
 			start = f
 		}
