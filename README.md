@@ -48,7 +48,11 @@ Only integers (64 bit)
 
 Number will push it to stack
 
-**add**, **sub**, **+**, **-** will pop two args from stack, does it and push the result to stack
+**add**, **sub**, **+**, **-**, **mul**,__*__ will pop two args from stack, does it and push the result to stack.
+
+**div**, **/** will pop a, then pop b and push to stack b / a, then push b % a
+
+**dob** will pop value from stack then push it twice
 
 **dump**, **.** will pop one arg from stack and print it
 
@@ -64,9 +68,9 @@ Also I plan to make virtual machine for it and compiler for this VM
 
 ## Samples
 
-1. test.gorth - normal program
-2. syntax.gorth - syntax error in code
-3. outstack.gorth - runtime error
-4. maxint.gorth - sum of two max int64
+1. [test.gorth](sample/test.gorth) - normal program
+2. [syntax.gorth](sample/syntax.gorth) - syntax error in code
+3. [outstack.gorth](sample/outstack.gorth) - runtime error
+4. [maxint.gorth](sample/maxint.gorth) - sum of two max int64
 
 Work in progress

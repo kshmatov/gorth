@@ -12,25 +12,6 @@ var ErrSyntax = errors.New("syntax error")
 
 type Program []op.Op
 
-var ops = map[string]func() op.Op{
-	"+":    op.Add,
-	"-":    op.Sub,
-	".":    op.Dump,
-	"add":  op.Add,
-	"sub":  op.Sub,
-	"dump": op.Dump,
-	"eq":   op.Eq,
-	"=":    op.Eq,
-	"gt":   op.Gt,
-	">":    op.Gt,
-	"gte":  op.Gte,
-	">=":   op.Gte,
-	"lt":   op.Lt,
-	"<":    op.Lt,
-	"lte":  op.Lte,
-	"<=":   op.Lte,
-}
-
 func Text2Program(t []byte) (Program, error) {
 	token, lines := string2Tokens(string(t))
 	if token == nil {
