@@ -5,12 +5,16 @@ SAMPLE=./sample/test.gorth
 .PHONY: ALL
 all: deps test build
 
+.PHONY: vet
+vet:
+	go vet ./...
+
 .PHONY: test
-test:
+test: vet
 	go test ./...
 
 .PHONY: build
-build:
+build: vet
 	go build -o $(BIN) cmd/$(MAIN)/main.go
 
 .PHONY: deps
