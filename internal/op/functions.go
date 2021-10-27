@@ -30,3 +30,18 @@ func Dump() Op {
 		},
 	}
 }
+
+func Dub() Op {
+	return &operation{
+		desc: "dub",
+		f: func(s *stack.Stack) (int, error) {
+			v, err := s.Pop()
+			if err != nil {
+				return 1, err
+			}
+			s.Push(v)
+			s.Push(v)
+			return 1, nil
+		},
+	}
+}
