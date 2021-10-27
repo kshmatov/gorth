@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 
 	"github.com/kshmatov/gorth/internal/runner"
 )
@@ -19,8 +20,8 @@ func main() {
 	}
 	err := runner.Run(*fn, *debug)
 	if err != nil {
-		fmt.Printf("error:\n\t%v\n", err)
+		fmt.Fprintln(os.Stderr, err.Error())
 	} else {
-		fmt.Printf("\ndone ok\n")
+		fmt.Println("ok")
 	}
 }
