@@ -117,7 +117,7 @@ func TestTokens2Program(t *testing.T) {
 	if err != nil {
 		t.Errorf("Error should be nil, but %v", err)
 	}
-	if len(p) != 7 {
-		t.Errorf("Program should have 7 operands, but has %v", len(p))
+	if p.Size() != 7 {
+		t.Errorf("Program should have 7 operands, but has %v", p.Size())
 	}
 }

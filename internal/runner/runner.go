@@ -4,7 +4,6 @@ import (
 	"os"
 
 	"github.com/kshmatov/gorth/internal/lexer"
-	"github.com/kshmatov/gorth/internal/runner/interpreter"
 	"github.com/pkg/errors"
 )
 
@@ -17,5 +16,5 @@ func Run(fn string, debug bool) error {
 	if err != nil {
 		return err
 	}
-	return interpreter.Simulate(prog, debug)
+	return prog.Run()
 }

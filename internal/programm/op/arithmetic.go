@@ -1,7 +1,7 @@
 package op
 
 import (
-	"github.com/kshmatov/gorth/internal/stack"
+	"github.com/kshmatov/gorth/internal/programm/stack"
 )
 
 func Add() Op {

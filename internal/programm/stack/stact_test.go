@@ -49,7 +49,7 @@ func TestStack_Pop(t *testing.T) {
 	if err != ErrStackIsOut {
 		t.Errorf("Shoud return %#v error, return %#v", ErrStackIsOut, err)
 	}
-	if v != 0 {
+	if v != False {
 		t.Errorf("On empty stack value should be 0, returns %v", v)
 	}
 	if s.pos != -1 {

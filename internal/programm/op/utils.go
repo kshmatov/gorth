@@ -1,7 +1,7 @@
 package op
 
 import (
-	"github.com/kshmatov/gorth/internal/stack"
+	"github.com/kshmatov/gorth/internal/programm/stack"
 	"github.com/pkg/errors"
 )
 
@@ -19,8 +19,8 @@ func get2(s *stack.Stack) (int64, int64, error) {
 
 func cond(b bool, s *stack.Stack) {
 	if b {
-		s.Push(1)
+		s.Push(True)
 	} else {
-		s.Push(0)
+		s.Push(False)
 	}
 }

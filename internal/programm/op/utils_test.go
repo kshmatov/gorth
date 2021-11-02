@@ -3,7 +3,7 @@ package op
 import (
 	"testing"
 
-	"github.com/kshmatov/gorth/internal/stack"
+	"github.com/kshmatov/gorth/internal/programm/stack"
 )
 
 func TestGet2(t *testing.T) {
@@ -48,8 +48,8 @@ func TestCont(t *testing.T) {
 	if err != nil {
 		t.Errorf("cond must push somethong to stack, %v", err)
 	}
-	if v != 0 {
-		t.Errorf("false cond must push 0 to stack, %v", v)
+	if v != False {
+		t.Errorf("false cond must pushFalseto stack, %v", v)
 	}
 
 }

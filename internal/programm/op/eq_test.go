@@ -3,7 +3,7 @@ package op
 import (
 	"testing"
 
-	"github.com/kshmatov/gorth/internal/stack"
+	"github.com/kshmatov/gorth/internal/programm/stack"
 )
 
 func TestEq(t *testing.T) {
@@ -20,7 +20,7 @@ func TestEq(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 1 {
+	if i != True {
 		t.Errorf("Eq should be 1, %v", i)
 	}
 
@@ -31,7 +31,7 @@ func TestEq(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 0 {
+	if i != False {
 		t.Errorf("Eq should be 0, %v", i)
 	}
 }
@@ -50,7 +50,7 @@ func TestNeq(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 0 {
+	if i != False {
 		t.Errorf("Neq should be 0, %v", i)
 	}
 
@@ -61,7 +61,7 @@ func TestNeq(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 1 {
+	if i != True {
 		t.Errorf("Neq should be 1, %v", i)
 	}
 }
@@ -80,7 +80,7 @@ func TestLt(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 1 {
+	if i != True {
 		t.Errorf("Lt should be 1, %v", i)
 	}
 
@@ -91,7 +91,7 @@ func TestLt(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 0 {
+	if i != False {
 		t.Errorf("Lt should be 0, %v", i)
 	}
 
@@ -102,7 +102,7 @@ func TestLt(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 0 {
+	if i != False {
 		t.Errorf("Lt should be 0, %v", i)
 	}
 }
@@ -121,7 +121,7 @@ func TestGte(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 1 {
+	if i != True {
 		t.Errorf("Gte should be 1, %v", i)
 	}
 
@@ -132,7 +132,7 @@ func TestGte(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 0 {
+	if i != False {
 		t.Errorf("Gte should be 0, %v", i)
 	}
 
@@ -143,7 +143,7 @@ func TestGte(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 1 {
+	if i != True {
 		t.Errorf("Gte should be 1, %v", i)
 	}
 }
@@ -162,7 +162,7 @@ func TestLte(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 1 {
+	if i != True {
 		t.Errorf("Lte should be 1, %v", i)
 	}
 
@@ -173,7 +173,7 @@ func TestLte(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 0 {
+	if i != False {
 		t.Errorf("Lte should be 0, %v", i)
 	}
 
@@ -184,7 +184,7 @@ func TestLte(t *testing.T) {
 	if err != nil {
 		t.Errorf("Pop error should be nil, %v", err)
 	}
-	if i != 1 {
+	if i != True {
 		t.Errorf("Lte should be 0, %v", i)
 	}
 }

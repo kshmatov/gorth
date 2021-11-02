@@ -3,7 +3,7 @@ package op
 import (
 	"testing"
 
-	"github.com/kshmatov/gorth/internal/stack"
+	"github.com/kshmatov/gorth/internal/programm/stack"
 	"github.com/pkg/errors"
 )
 

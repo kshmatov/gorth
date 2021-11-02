@@ -18,21 +18,21 @@ func (t token) String() string {
 
 // tokenize split one line to tokens
 func tokenize(i int, s string, first *token) (*token, *token, int) {
-	t := strings.Fields(s)
+	tokenList := strings.Fields(s)
 	var cur *token
 	items := 0
-	for _, v := range t {
-		if v != "" {
+	for _, tokenItem := range tokenList {
+		if tokenItem != "" {
 			if first == nil {
 				first = &token{
-					i: i, v: v,
+					i: i, v: tokenItem,
 				}
 			} else {
 				if cur == nil {
 					cur = first
 				}
 				cur.next = &token{
-					i: i, v: v,
+					i: i, v: tokenItem,
 				}
 				cur = cur.next
 			}
@@ -48,6 +48,8 @@ func string2Tokens(str string) (*token, int) {
 	var start, cur *token
 	cnt := 0
 	for i, s := range lines {
+		// Cut comments
+		s = strings.Split(s, "\\")[0]
 		f, c, ls := tokenize(i+1, s, cur)
 		if start == nil {
 			start = f

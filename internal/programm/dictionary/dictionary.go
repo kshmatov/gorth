@@ -1,7 +1,7 @@
-package lexer
+package dictionary
 
 import (
-	"github.com/kshmatov/gorth/internal/op"
+	"github.com/kshmatov/gorth/internal/programm/op"
 )
 
 var ops = map[string]func() op.Op{
